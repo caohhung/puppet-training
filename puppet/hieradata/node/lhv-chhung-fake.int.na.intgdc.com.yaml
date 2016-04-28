@@ -1,0 +1,1 @@
+ntp::ntp_servers: [0.vn.pool.ntp.org, 0.asia.pool.ntp.org, 2.asia.pool.ntp.org]

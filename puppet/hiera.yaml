@@ -1,0 +1,22 @@
+---
+:backends:
+  - yaml
+  - eyaml
+:yaml:
+  :datadir: /etc/puppet/hieradata
+:eyaml:
+  :datadir: /etc/puppet/hieradata
+  :pkcs7_private_key: /var/lib/puppet/keys/private_key.pkcs7.pem # only for PM
+  :pkcs7_public_key:  /var/lib/puppet/keys/public_key.pkcs7.pem  # only for PM
+:hierarchy:
+  - node/%{fqdn}
+  - type/%{ec2data_type}/%{ec2data_clusterid}
+  - type/%{ec2data_type}
+  - cluster/%{ec2data_clusterid}/%{ec2data_subcluster_name}
+  - subcluster/%{ec2data_subcluster_name}
+  - cluster/%{ec2data_clusterid}
+  - datacenter/%{ec2data_datacenter}/%{ec2data_environment}
+  - environment/%{ec2data_environment}
+  - datacenter/%{ec2data_datacenter}
+  - global
+:logger: puppet
